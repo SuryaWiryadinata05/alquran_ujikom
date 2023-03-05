@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
-import 'package:zal_quran/globals.dart';
-import 'package:zal_quran/model/model_bacaan.dart';
+import 'package:quran_surr/globals.dart';
+import 'package:quran_surr/model/model_bacaan.dart';
 
 class BacaanSholat extends StatefulWidget {
   const BacaanSholat({Key? key}) : super(key: key);
@@ -67,6 +67,7 @@ class _BacaanSholatState extends State<BacaanSholat> {
                     alignment: Alignment.topRight,
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(30),
                         topLeft: Radius.circular(30),
                         bottomLeft: Radius.circular(30),
                         bottomRight: Radius.circular(30),
@@ -95,6 +96,7 @@ class _BacaanSholatState extends State<BacaanSholat> {
                             itemCount: items == null ? 0 : items.length,
                             itemBuilder: (context, index) {
                               return Card(
+                                color: text,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
                                 elevation: 5,

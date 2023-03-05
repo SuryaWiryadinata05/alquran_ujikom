@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zal_quran/globals.dart';
-import 'package:zal_quran/models/surah.dart';
+import 'package:quran_surr/globals.dart';
+import 'package:quran_surr/models/surah.dart';
 
 import '../models/ayat.dart';
 

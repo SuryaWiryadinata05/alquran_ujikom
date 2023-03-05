@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zal_quran/globals.dart';
-import 'package:zal_quran/models/surah.dart';
-import 'package:zal_quran/screens/detail_screen.dart';
+import 'package:quran_surr/globals.dart';
+
+import '../models/surah.dart';
+import '../screens/detail_screen.dart';
 
 class SurahTab extends StatelessWidget {
   const SurahTab({super.key});
@@ -36,10 +39,9 @@ class SurahTab extends StatelessWidget {
       GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => DetailScreen(
-                    noSurat: surah.nomor,
-                  )));
+          Get.to(DetailScreen(noSurat: surah.nomor),
+              transition: Transition.upToDown,
+              duration: Duration(milliseconds: 600));
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),

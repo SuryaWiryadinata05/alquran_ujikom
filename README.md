@@ -1,8 +1,9 @@
-# zal_quran
+# Surrrye
 
 A new Flutter project.
 
 ## Getting Started
+apaan tuhh
 
 This project is a starting point for a Flutter application.
 

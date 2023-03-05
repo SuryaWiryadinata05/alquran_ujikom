@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zal_quran/globals.dart';
-import 'package:zal_quran/tabs/ayat_kursi_page.dart';
-import 'package:zal_quran/tabs/bacaan_sholat_page.dart';
-import 'package:zal_quran/tabs/niat_sholat_page.dart';
+import 'package:quran_surr/controllers/home_controller.dart';
+import 'package:quran_surr/globals.dart';
+import 'package:quran_surr/login/sidebar/sidebar.dart';
+import 'package:quran_surr/tabs/ayat_kursi_page.dart';
+import 'package:quran_surr/tabs/bacaan_sholat_page.dart';
+import 'package:quran_surr/tabs/niat_sholat_page.dart';
+import 'package:quran_surr/tabs/surah_tab.dart';
 
-import 'package:zal_quran/tabs/surah_tab.dart';
-
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  GlobalKey<ScaffoldState> _scaffoldKEy = GlobalKey<ScaffoldState>();
+
+  @override
   Widget build(BuildContext context) {
+    // HomeController controller = Get.put(HomeController());
     return Scaffold(
+      drawer: SidebarPage(),
+      key: _scaffoldKEy,
       backgroundColor: background,
       appBar: _appBar(),
       // bottomNavigationBar: _bottomNavigationBar(),
@@ -173,8 +186,17 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         title: Row(children: [
           IconButton(
-              onPressed: (() => {}),
-              icon: SvgPicture.asset('assets/svgs/menu-icon.svg')),
+            onPressed: () {
+              _scaffoldKEy.currentState?.openDrawer();
+            },
+            // Navigator.of(context).push(MaterialPageRoute(
+            //     builder: ((context) => Sidebarpage())));
+
+            icon: Icon(
+              Icons.menu,
+              color: Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
           const SizedBox(
             width: 24,
           ),
@@ -184,9 +206,9 @@ class HomeScreen extends StatelessWidget {
                 GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const Spacer(),
-          IconButton(
-              onPressed: (() => {}),
-              icon: SvgPicture.asset('assets/svgs/search-icon.svg')),
+          // IconButton(
+          //     onPressed: (() => {}),
+          //     icon: SvgPicture.asset('assets/svgs/search-icon.svg')),
         ]),
       );
 

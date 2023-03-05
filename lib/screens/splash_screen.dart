@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zal_quran/globals.dart';
-import 'package:zal_quran/screens/home_screen.dart';
+import 'package:quran_surr/globals.dart';
+import 'package:quran_surr/screens/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
